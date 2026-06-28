@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "../ui/card";
+import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const ProfileCard = () => {
   return (
@@ -12,7 +13,13 @@ const ProfileCard = () => {
       <CardContent>
         <div className="flex justify-start gap-16 py-2">
           {/* XP and Level */}
-          <div className=" w-28 aspect-square flex flex-col items-center justify-center border-6 rounded-full">
+
+          <div className="relative w-28 aspect-square flex flex-col items-center justify-center font-bold border-6 rounded-full">
+            <Avatar className="w-8 h-auto absolute -top-4 -right-6">
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+              <AvatarBadge className="animate-pulse" />
+            </Avatar>
             Level <br /> 01
           </div>
 
@@ -21,8 +28,15 @@ const ProfileCard = () => {
             <h3 className="w-max text-primary">KLAUS 117</h3>
 
             <div className="text-xs">
-              <span>Streak 01 </span>
-              <span>Quests Completed 25 </span>
+              <span>
+                ⚡Streak :: 01 <br />{" "}
+              </span>
+              <span
+                className="text-muted-foreground
+              "
+              >
+                🧑🏽‍🎤 Quests Completed :: 25{" "}
+              </span>
             </div>
           </div>
         </div>
