@@ -1,14 +1,21 @@
+import ProfileCard from "@/components/cards/user-profile";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="">
-      <h1>Side Quest.Inc</h1>
+    <section className="">
+      <ProfileCard />
 
-      <div>
-        <Button variant="default">Initiate</Button>
+      {/* QUEST FILTERS */}
+      {/* Toggles */}
+
+      {/* ACTIVE QUESTS */}
+      <div className="flex justify-start items-center p-4 gap-4 flex-wrap">
+        <Button variant="default">All Quests</Button>
+        <Button variant="default">Social</Button>
+        <Button variant="outline">Unusual</Button>
+        <Button variant="outline">Fitness</Button>
       </div>
-    </div>
+    </section>
   );
 }
