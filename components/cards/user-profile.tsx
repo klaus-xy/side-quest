@@ -16,11 +16,14 @@ const ProfileCard = () => {
 
           <div className="relative w-28 aspect-square flex flex-col items-center justify-center font-bold border-6 rounded-full">
             <Avatar className="w-8 h-auto absolute -top-4 -right-6">
-              <AvatarImage src="https://github.com/shadcn.png" />
+              {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
+              <AvatarImage src="/images/cool-klaus.jpg" />
               <AvatarFallback>CN</AvatarFallback>
               <AvatarBadge className="animate-pulse" />
             </Avatar>
-            Level <br /> 01
+            <div className="text-center">
+              Level <span className="text-4xl block">01</span>
+            </div>
           </div>
 
           {/* Name and Info */}
