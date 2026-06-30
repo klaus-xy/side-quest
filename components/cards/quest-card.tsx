@@ -51,7 +51,7 @@ const QuestCard = ({
         <div className="flex justify-start gap-16 py-2"></div>
       </CardContent>
       <CardFooter>
-        <span className="w-full flex justify-between text-primary">
+        <span className="w-full flex justify-between text-primary font-semibold">
           +{xp} XP
         </span>
         <CardAction className="flex justify-end gap-2">

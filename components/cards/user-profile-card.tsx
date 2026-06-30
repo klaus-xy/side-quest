@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent } from "../ui/card";
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "../ui/avatar";
 
-const ProfileCard = () => {
+const UserProfileCard = () => {
   return (
     <Card className="rounded-none border">
       {/* <CardHeader>
@@ -11,7 +11,7 @@ const ProfileCard = () => {
         <CardAction>Card Action</CardAction>
       </CardHeader> */}
       <CardContent>
-        <div className="flex justify-start gap-16 py-2">
+        <div className="flex justify-start gap-14 py-2">
           {/* XP and Level */}
 
           <div className="relative w-28 aspect-square flex flex-col items-center justify-center font-bold border-6 rounded-full">
@@ -32,13 +32,13 @@ const ProfileCard = () => {
 
             <div className="text-xs">
               <span>
-                ⚡Streak :: 01 <br />{" "}
+                ⚡Max Streak :: <span>01</span> <br />{" "}
               </span>
               <span
-                className="text-muted-foreground
+                className="text-muted-foreground font-semibold
               "
               >
-                🧑🏽‍🎤 Quests Completed :: 25{" "}
+                🧑🏽‍🎤 Quests Completed :: 25
               </span>
             </div>
           </div>
@@ -51,4 +51,4 @@ const ProfileCard = () => {
   );
 };
 
-export default ProfileCard;
+export default UserProfileCard;

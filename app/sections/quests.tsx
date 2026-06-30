@@ -1,10 +1,19 @@
 import QuestCard from "@/components/cards/quest-card";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 
 const Quests = () => {
   return (
     <section>
+      {/* QUEST FILTERS */}
+      {/* Toggles */}
+      <div className="flex justify-start items-center my-4 gap-4 flex-wrap">
+        <Button variant="default">All Quests</Button>
+        <Button variant="default">🤼‍♀️ Social</Button>
+        <Button variant="outline">👽 Unusual</Button>
+        <Button variant="outline">💪🏽 Physical</Button>
+      </div>
       <div className="flex justify-start items-center gap-2 my-4">
         <h4 className="text-primary text-xs">Quests</h4>
         <Separator className="" />
@@ -28,6 +37,13 @@ const Quests = () => {
         <QuestCard
           title="Social Anxiety Who?"
           description="Spontaneously start to dance to background music in a coffee shop or a park."
+          category="Social"
+          xp={100}
+          tier={2}
+        />
+        <QuestCard
+          title="Touch Grass"
+          description="Go on. Touch grass.  Touch grass.  Touch grass."
           category="Social"
           xp={100}
           tier={2}
