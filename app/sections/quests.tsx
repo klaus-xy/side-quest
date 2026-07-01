@@ -1,7 +1,6 @@
 import QuestCard from "@/components/cards/quest-card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import React from "react";
 
 const Quests = () => {
   return (
@@ -26,6 +25,7 @@ const Quests = () => {
           category="Create"
           xp={25}
           tier={1}
+          newQuest={false}
         />
         <QuestCard
           title="System Reboot 🤖"
@@ -40,6 +40,7 @@ const Quests = () => {
           category="Social"
           xp={100}
           tier={2}
+          newQuest={false}
         />
         <QuestCard
           title="Touch Grass 🌱"

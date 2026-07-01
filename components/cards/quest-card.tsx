@@ -18,6 +18,7 @@ import {
   DialogDescription,
   Dialog,
 } from "../ui/dialog";
+import { toast } from "sonner";
 
 interface QuestCardProps {
   title: string;
@@ -25,6 +26,7 @@ interface QuestCardProps {
   category: string;
   xp: number;
   tier: number;
+  newQuest?: boolean;
 }
 
 const QuestCard = ({
@@ -33,8 +35,22 @@ const QuestCard = ({
   category = "Category",
   xp = 25,
   tier = 1,
+  newQuest = true,
 }: QuestCardProps) => {
-  const handleCompleteQuest = () => {};
+  const handleInitiateQuest = () => {
+    toast(`Quest :: ${title} has started.`, {
+      description: " Quest description. You've got one hour. Let's do this!",
+    });
+  };
+
+  const handleCompleteQuest = () => {
+    toast(`Quest :: ${title} has been completed.`);
+  };
+
+  const handleAbandonQuest = () => {
+    toast(`Quest :: ${title} has been abandoned.`);
+  };
+
   return (
     <Card className="rounded-none border">
       <CardHeader>
@@ -55,10 +71,20 @@ const QuestCard = ({
           +{xp} XP
         </span>
         <CardAction className="flex justify-end gap-2">
-          <Button variant={"outline"}>Abandon</Button>
+          <Button
+            variant={"outline"}
+            className={`${newQuest ? "hidden" : ""}`}
+            onClick={handleAbandonQuest}
+          >
+            Abandon
+          </Button>
           <Dialog>
             <DialogTrigger asChild>
-              <Button onClick={handleCompleteQuest}>Complete</Button>
+              <Button
+                onClick={newQuest ? handleInitiateQuest : handleCompleteQuest}
+              >
+                {newQuest ? "Initiate" : "Complete"}
+              </Button>
             </DialogTrigger>
             <DialogContent showCloseButton={false}>
               <DialogHeader>
