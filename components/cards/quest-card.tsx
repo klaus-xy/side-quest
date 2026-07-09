@@ -25,6 +25,7 @@ interface QuestCardProps {
   description: string;
   category: string;
   xp: number;
+
   tier: number;
   newQuest?: boolean;
 }

@@ -28,8 +28,8 @@ const UserProfileCard = () => {
 
           <div className="relative w-28 aspect-square flex flex-col items-center justify-center font-bold border-6 rounded-full">
             <Avatar className="w-8 h-8 absolute -top-4 -right-6">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              {/* <AvatarImage src="/images/cool-klaus.jpg" /> */}
+              {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
+              <AvatarImage src="/images/cool-klaus.jpg" />
               <AvatarFallback>CN</AvatarFallback>
               <AvatarBadge
                 className={`animate-pulse ${SITE_STATUS === "online" ? "bg-primary" : SITE_STATUS === "maintenance" ? "bg-amber-500" : "bg-muted-foreground"}`}

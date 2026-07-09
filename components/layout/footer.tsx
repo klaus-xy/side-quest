@@ -8,7 +8,9 @@ const Footer = () => {
     <footer className="flex  flex-col items-center justify-center py-4 gap-5">
       <Separator className="w-full mt-4 mb-10 bg-primary/50" />
       <div className="flex flex-col items-center justify-center">
-        <span className="text-lg font-semibold uppercase">Side Quest .Inc</span>
+        <span className="text-lg font-eurostile uppercase">
+          Side Quest .Inc
+        </span>
         <span className="text-[0.6rem] text-muted-foreground uppercase">
           [ Join Side-Quest .Inc ]
         </span>
@@ -38,7 +40,7 @@ const Footer = () => {
       </div> */}
 
       <span className="text-[0.6rem] text-muted-foreground mt-4 uppercase">
-        &copy; {new Date().getFullYear()} Side Quest .Inc All rights reserved.
+        &copy; {new Date().getFullYear()} Side Quest.Inc // All rights reserved.
       </span>
     </footer>
   );
