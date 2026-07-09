@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 interface UseTypewriterProps {
   lines: string[];
   typingInterval?: number;
+  startDelay?: number;
   delayBetweenLines?: number;
   replaceFunction?: (input: string) => string;
 }
@@ -35,6 +36,7 @@ export const TypingCursor = ({ cursorChar = "_" }: TypingCursorProps) => {
 const useTypewriter = ({
   lines,
   typingInterval = 50,
+  startDelay = 0,
   delayBetweenLines = 50,
   replaceFunction,
 }: UseTypewriterProps) => {
@@ -42,9 +44,18 @@ const useTypewriter = ({
   const [currentText, setCurrentText] = useState(""); // updates current text for each line
   const [isLineComplete, setIsLineComplete] = useState(false);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [hasStartedTyping, setHasStartedTyping] = useState(startDelay === 0);
+
+  // Waits startDelay ms before typing begins.
+  useEffect(() => {
+    if (startDelay === 0) return;
+    const delay = setTimeout(() => setHasStartedTyping(true), startDelay);
+    return () => clearTimeout(delay);
+  }, [startDelay]);
 
   // Updates current text.
   useEffect(() => {
+    if (!hasStartedTyping) return;
     // Get current modified line to type
     if (currentLineIndex < lines.length) {
       const lineToType = replaceFunction
@@ -61,7 +72,7 @@ const useTypewriter = ({
       }
     }
     console.log("Line ", currentLineIndex, " is complete.");
-  }, [currentText, currentLineIndex]);
+  }, [currentText, currentLineIndex, hasStartedTyping]);
 
   // Updates current line.
   useEffect(() => {

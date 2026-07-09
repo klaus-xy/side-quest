@@ -1,0 +1,31 @@
+{
+  "username": "KLAUS 117",
+  "avatarUrl": "https://github.com/shadcn.png",
+  "level": 4,
+  "xp": 140,
+  "xpToNextLevel": 200,
+  "rank": {
+    "letter": "E",
+    "name": "E-RANK HUNTER",
+    "tier": 1
+  },
+  "class": "PHYSICAL HUNTER",
+  "streak": 3,
+  "totalCompleted": 25,
+  "totalForfeited": 2,
+  "categoryCounts": {
+    "fitness": 9,
+    "creativity": 5,
+    "social": 6,
+    "productivity": 3,
+    "mindfulness": 1,
+    "offscript": 1
+  },
+  "stats": {
+    "str": 14,
+    "agi": 10,
+    "int": 8,
+    "vit": 12,
+    "sen": 7
+  }
+}

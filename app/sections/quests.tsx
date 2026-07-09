@@ -12,10 +12,13 @@ const Quests = () => {
         <Button variant="default">🤼‍♀️ Social</Button>
         <Button variant="outline">👽 Unusual</Button>
         <Button variant="outline">💪🏽 Physical</Button>
+        <Button variant="outline">👩🏽‍💻 Tech </Button>
       </div>
+
+      {/* ACTIVE QUESTS */}
       <div className="flex justify-start items-center gap-2 my-4">
-        <h4 className="text-primary text-xs">Quests</h4>
-        <Separator className="" />
+        <h4 className="text-primary text-xs">[+] Active Quests</h4>
+        <Separator className="flex-1" />
       </div>
       {/* QUEST LIST */}
       <div className="space-y-4">
@@ -41,6 +44,20 @@ const Quests = () => {
           xp={100}
           tier={2}
           newQuest={false}
+        />
+
+        {/* NEW QUESTS */}
+        <div className="flex justify-start items-center gap-2 my-4">
+          <h4 className="text-primary text-xs">[+] New Quests</h4>
+          <Separator className="flex-1" />
+        </div>
+        <QuestCard
+          title="Commitment 🧑‍🤝‍🧑"
+          description="Push a new git commit -m Sponsored by SideQuest.inc."
+          category="Tech"
+          xp={20}
+          tier={1}
+          newQuest={true}
         />
         <QuestCard
           title="Touch Grass 🌱"

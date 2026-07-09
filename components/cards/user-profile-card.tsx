@@ -5,12 +5,14 @@ import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Progress } from "../ui/progress";
 import { Badge } from "../ui/badge";
 import useTypewriter, { TypingCursor } from "@/app/hooks/use-typewriter";
+import { Share } from "lucide-react";
 
 const UserProfileCard = () => {
   const typingLines = ["KLAUS 117"];
   const { currentText } = useTypewriter({
     lines: typingLines,
     typingInterval: 100,
+    startDelay: 600,
   });
   return (
     <Card className="rounded-none border">
@@ -24,7 +26,7 @@ const UserProfileCard = () => {
           {/* XP and Level */}
 
           <div className="relative w-28 aspect-square flex flex-col items-center justify-center font-bold border-6 rounded-full">
-            <Avatar className="w-8 h-auto absolute -top-4 -right-6">
+            <Avatar className="w-8 h-8 absolute -top-4 -right-6">
               <AvatarImage src="https://github.com/shadcn.png" />
               {/* <AvatarImage src="/images/cool-klaus.jpg" /> */}
               <AvatarFallback>CN</AvatarFallback>
@@ -39,7 +41,7 @@ const UserProfileCard = () => {
           <div className="flex flex-col justify-around">
             <h3 className="w-max min-w-full min-h-9 text-primary">
               {currentText}
-              {/* <TypingCursor /> */}
+              <TypingCursor cursorChar="⋮" />
             </h3>
             <Badge
               variant="outline"
@@ -48,6 +50,7 @@ const UserProfileCard = () => {
               Novice
             </Badge>
             {/* <Progress value={25} className="w-full rounded-none" /> */}
+
             <div className="text-xs">
               <span>
                 ⚡Max Streak :: <span>01</span> <br />{" "}

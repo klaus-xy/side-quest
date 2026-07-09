@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/header";
 import { Toaster } from "@/components/ui/sonner";
+import Footer from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -41,9 +42,10 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col dark">
+        <Toaster position="top-center" duration={5000} />
         <Header />
         {children}
-        <Toaster position="top-center" duration={5000} />
+        <Footer />
       </body>
     </html>
   );

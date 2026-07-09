@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cre-1-2",
+    "title": "Sound Byte 🎶",
+    "description": "Record a 30 second voice memo of any melody stuck in your head.",
+    "category": "creativity",
+    "xp": 25,
+    "tier": 1,
+    "newQuest": false
+  },
+  {
+    "id": "fit-1-1",
+    "title": "System Reboot 🤖",
+    "description": "Drink a full glass of water right now. Hydration protocol initiated.",
+    "category": "fitness",
+    "xp": 20,
+    "tier": 1,
+    "newQuest": false
+  },
+  {
+    "id": "soc-3-1",
+    "title": "Group Sync 🤷🏽‍♀️",
+    "description": "Organise a small hangout with two or more people.",
+    "category": "social",
+    "xp": 46,
+    "tier": 3,
+    "newQuest": true
+  },
+  {
+    "id": "pro-1-1",
+    "title": "Inbox Purge 🧑‍🤝‍🧑",
+    "description": "Clear or organise one cluttered inbox, folder, or notification stack.",
+    "category": "productivity",
+    "xp": 16,
+    "tier": 1,
+    "newQuest": true
+  },
+  {
+    "id": "soc-4-2",
+    "title": "Community Node 🌱",
+    "description": "Attend a group, club, or event full of people you do not know.",
+    "category": "social",
+    "xp": 66,
+    "tier": 4,
+    "newQuest": true
+  },
+  {
+    "id": "off-5",
+    "title": "Anomaly: Giving 🦖",
+    "description": "Give away something you own to someone who needs it more than you do.",
+    "category": "offscript",
+    "xp": 46,
+    "tier": 3,
+    "newQuest": true
+  },
+  {
+    "id": "min-1-2",
+    "title": "Sense Check 👀",
+    "description": "Step outside. Name three things you can see, hear, and feel.",
+    "category": "mindfulness",
+    "xp": 16,
+    "tier": 1,
+    "newQuest": true
+  }
+]
