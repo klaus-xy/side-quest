@@ -6,6 +6,7 @@ import { Progress } from "../ui/progress";
 import { Badge } from "../ui/badge";
 import useTypewriter, { TypingCursor } from "@/app/hooks/use-typewriter";
 import { Share } from "lucide-react";
+import { SITE_STATUS } from "@/lib/site-status";
 
 const UserProfileCard = () => {
   const typingLines = ["KLAUS 117"];
@@ -30,7 +31,9 @@ const UserProfileCard = () => {
               <AvatarImage src="https://github.com/shadcn.png" />
               {/* <AvatarImage src="/images/cool-klaus.jpg" /> */}
               <AvatarFallback>CN</AvatarFallback>
-              <AvatarBadge className="animate-pulse bg-amber-500" />
+              <AvatarBadge
+                className={`animate-pulse ${SITE_STATUS === "online" ? "bg-primary" : SITE_STATUS === "maintenance" ? "bg-amber-500" : "bg-muted-foreground"}`}
+              />
             </Avatar>
             <div className="text-center">
               Level <span className="text-4xl block">01</span>
