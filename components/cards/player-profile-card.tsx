@@ -41,7 +41,7 @@ const PlayerProfileCard = () => {
           </div>
 
           {/* Name and Info */}
-          <div className="flex flex-col justify-start gap-2">
+          <div className="flex flex-col justify-start gap-2 py-2 ">
             <h3 className="w-max min-w-full min-h-8 text-primary">
               {currentText}
               <TypingCursor cursorChar="⋮" />
