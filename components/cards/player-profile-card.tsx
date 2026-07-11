@@ -42,9 +42,9 @@ const PlayerProfileCard = () => {
 
           {/* Name and Info */}
           <div className="flex flex-col justify-start gap-2 py-2 ">
-            <h3 className="w-max min-w-full min-h-8 text-primary">
+            <h3 className="w-max min-w-full min-h-8 text-primary font-eurostile text-lg">
               {currentText}
-              <TypingCursor cursorChar="⋮" />
+              <TypingCursor cursorChar=" _" />
             </h3>
             <Badge
               variant="outline"
@@ -61,15 +61,15 @@ const PlayerProfileCard = () => {
             {/* <Progress value={25} className="w-full rounded-none" /> */}
 
             {/* PLAYERSTATS */}
-            <div className="flex flex-col text-[0.625rem]  ">
+            <div className="flex flex-col text-[0.625rem] uppercase gap-0 mt-2">
               <span className="text-amber-500 font-semibold">
-                ⚡Max Streak :: <span>05</span> <br />{" "}
+                [⚡] Max Streak :: <span>05</span> <br />{" "}
               </span>
               <span className="text-muted-foreground font-semibold">
-                🧑🏽‍🎤 Quests Completed :: 25
+                [🧑🏽‍🎤] Quests Completed :: 25
               </span>
               <span className="text-muted-foreground font-semibold">
-                🧑🏽 Quests Forfeited :: 00
+                [🧑🏽] Quests Forfeited :: 00
               </span>
             </div>
           </div>

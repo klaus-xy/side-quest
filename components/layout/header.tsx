@@ -19,7 +19,7 @@ const Header = () => {
       </span>
       <h1>Side Quest .Inc</h1>
       <h2 className="text-primary text-[0.7rem] font-medium">
-        Tired of normal life? Join Side-Quest.
+        Tired of normal life? Do a Side-Quest.
       </h2>
     </div>
   );
