@@ -5,7 +5,7 @@ import { DiscIcon } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="flex  flex-col items-center justify-center py-4 gap-5">
+    <footer className="container mx-auto flex flex-col items-center justify-center py-4 gap-5">
       <Separator className="w-full mt-4 mb-10 bg-primary/50" />
       <div className="flex flex-col items-center justify-center">
         <span className="text-lg font-eurostile uppercase">

@@ -1,4 +1,4 @@
-import UserProfileCard from "@/components/cards/user-profile-card";
+import UserProfileCard from "@/components/cards/player-profile-card";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
