@@ -41,7 +41,7 @@ const PlayerProfileCard = () => {
           </div>
 
           {/* Name and Info */}
-          <div className="flex flex-col justify-around ">
+          <div className="flex flex-col justify-start gap-2">
             <h3 className="w-max min-w-full min-h-8 text-primary">
               {currentText}
               <TypingCursor cursorChar="⋮" />
@@ -62,10 +62,8 @@ const PlayerProfileCard = () => {
 
             {/* PLAYERSTATS */}
             <div className="flex flex-col text-[0.625rem]  ">
-              <span>
-                ⚡Max Streak ::{" "}
-                <span className="font-semibold text-primary">05</span>{" "}
-                <br />{" "}
+              <span className="text-amber-500 font-semibold">
+                ⚡Max Streak :: <span>05</span> <br />{" "}
               </span>
               <span className="text-muted-foreground font-semibold">
                 🧑🏽‍🎤 Quests Completed :: 25
