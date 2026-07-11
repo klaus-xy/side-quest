@@ -30,7 +30,7 @@ const PlayerProfileCard = () => {
             <Avatar className="w-8 h-8 absolute -top-4 -right-6">
               <AvatarImage src="https://github.com/shadcn.png" />
               {/* <AvatarImage src="/images/cool-klaus.jpg" /> */}
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>::</AvatarFallback>
               <AvatarBadge
                 className={`animate-pulse ${SITE_STATUS === "online" ? "bg-primary" : SITE_STATUS === "maintenance" ? "bg-amber-500" : "bg-muted-foreground"}`}
               />
@@ -46,22 +46,22 @@ const PlayerProfileCard = () => {
               {currentText}
               <TypingCursor cursorChar="⋮" />
             </h3>
-            {/* <Badge
+            <Badge
               variant="outline"
               className="absolute -top-2 right-0 text-[10px] border-amber-500 uppercase"
             >
               E-RANK
-            </Badge> */}
+            </Badge>
 
             {/* RANK */}
-            <Badge variant="outline" className=" border-amber-500 ">
+            {/* <Badge variant="outline" className=" border-amber-500 ">
               E-RANK
-            </Badge>
+            </Badge> */}
 
             {/* <Progress value={25} className="w-full rounded-none" /> */}
 
             {/* PLAYERSTATS */}
-            <div className="flex flex-col text-[0.625rem] mt-6 ">
+            <div className="flex flex-col text-[0.625rem]  ">
               <span>
                 ⚡Max Streak ::{" "}
                 <span className="font-semibold text-primary">05</span>{" "}
