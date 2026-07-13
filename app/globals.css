@@ -133,7 +133,11 @@
     @apply container mx-auto p-4;
   }
   h1 {
-    @apply text-2xl font-bold font-eurostile;
+    @apply text-2xl font-bold font-eurostile uppercase;
+  }
+
+  h2 {
+    @apply text-lg font-semibold font-eurostile uppercase;
   }
 
   h3 {
@@ -143,4 +147,7 @@
   /* span {
     @apply text-primary;
   } */
+  label {
+    @apply uppercase;
+  }
 }

@@ -26,7 +26,7 @@ const PlayerProfileCard = () => {
         <div className="relative flex justify-start gap-12 py-2">
           {/* XP and Level */}
 
-          <div className="relative w-28 aspect-square flex flex-col items-center justify-center font-bold border-6 rounded-full">
+          <div className="relative w-28 aspect-square shrink-0 flex flex-col items-center justify-center font-bold border-6 rounded-full">
             <Avatar className="w-8 h-8 absolute -top-4 -right-6">
               <AvatarImage src="https://github.com/shadcn.png" />
               {/* <AvatarImage src="/images/cool-klaus.jpg" /> */}
@@ -42,9 +42,9 @@ const PlayerProfileCard = () => {
 
           {/* Name and Info */}
           <div className="flex flex-col justify-start gap-2 py-2 ">
-            <h3 className="w-max min-w-full min-h-8 text-primary font-eurostile text-lg">
+            <h3 className="w-max min-w-full min-h-8 text-lg text-primary font-eurostile">
               {currentText}
-              <TypingCursor cursorChar=" _" />
+              <TypingCursor cursorChar="⋮" />
             </h3>
             <Badge
               variant="outline"
@@ -61,7 +61,7 @@ const PlayerProfileCard = () => {
             {/* <Progress value={25} className="w-full rounded-none" /> */}
 
             {/* PLAYERSTATS */}
-            <div className="flex flex-col text-[0.625rem] uppercase gap-0 mt-2">
+            <div className="flex flex-col text-[0.625rem] uppercase gap-1 mt-2">
               <span className="text-amber-500 font-semibold">
                 [⚡] Max Streak :: <span>05</span> <br />{" "}
               </span>

@@ -18,7 +18,7 @@ const Header = () => {
         [{currentText}]
       </span>
       <h1>Side Quest .Inc</h1>
-      <h2 className="text-primary text-[0.7rem] font-medium">
+      <h2 className="text-primary text-[0.7rem] font-semibold font-mono">
         Tired of normal life? Do a Side-Quest.
       </h2>
     </div>
