@@ -1,0 +1,62 @@
+[
+  {
+    "id": "avatar-01",
+    "name": "Iron Vanguard",
+    "class": "PHYSICAL HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=IronVanguard&backgroundColor=262626"
+  },
+  {
+    "id": "avatar-02",
+    "name": "Grit Breaker",
+    "class": "PHYSICAL HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=GritBreaker&backgroundColor=262626"
+  },
+  {
+    "id": "avatar-03",
+    "name": "Wind Runner",
+    "class": "AGILITY HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=WindRunner&backgroundColor=1f2937"
+  },
+  {
+    "id": "avatar-04",
+    "name": "Shadow Step",
+    "class": "AGILITY HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=ShadowStep&backgroundColor=1f2937"
+  },
+  {
+    "id": "avatar-05",
+    "name": "Arcane Scholar",
+    "class": "MYSTIC HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=ArcaneScholar&backgroundColor=312e81"
+  },
+  {
+    "id": "avatar-06",
+    "name": "Rune Weaver",
+    "class": "MYSTIC HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=RuneWeaver&backgroundColor=312e81"
+  },
+  {
+    "id": "avatar-07",
+    "name": "Stone Warden",
+    "class": "VITALITY HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=StoneWarden&backgroundColor=14532d"
+  },
+  {
+    "id": "avatar-08",
+    "name": "Bastion Guard",
+    "class": "VITALITY HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=BastionGuard&backgroundColor=14532d"
+  },
+  {
+    "id": "avatar-09",
+    "name": "Keen Eye",
+    "class": "SENSORY HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=KeenEye&backgroundColor=78350f"
+  },
+  {
+    "id": "avatar-10",
+    "name": "Echo Sense",
+    "class": "SENSORY HUNTER",
+    "url": "https://api.dicebear.com/9.x/adventurer/svg?seed=EchoSense&backgroundColor=78350f"
+  }
+]
