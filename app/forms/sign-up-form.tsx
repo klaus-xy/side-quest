@@ -27,42 +27,30 @@ const SignUpForm = ({ className }: SignUpFormProps) => {
       <span className="text-[0.7rem] text-primary uppercase font-semibold tracking-[0.3em]">
         [ Welcome ]
       </span>
-      <h1 className="min-h-10 mb-4">
+      <h1 className="min-h-10 mb-4 text-center text-3xl">
         {currentText}
         <TypingCursor cursorChar="⋮" />
       </h1>
 
-      <form className="w-full">
+      <form className="w-full mt-8">
         <FieldGroup>
+          <FieldGroup>
+            <Field>
+              <FieldLabel htmlFor="player-name">[Player Name]</FieldLabel>
+              <Input id="player-name" placeholder="Evil Rabbit" required />
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="age">[Age]</FieldLabel>
+              <Input id="age" placeholder="18" required />
+              {/* <FieldDescription>Enter your birthday</FieldDescription> */}
+            </Field>
+          </FieldGroup>
+          {/* <FieldSeparator /> */}
           <FieldDescription className="text-xs">
             <span className="font-medium text-primary">Side Quest OS™</span> has
             identified you as an unregistered player in the System. Provide your
             identification data to initialize your player profile.
           </FieldDescription>
-          <FieldGroup>
-            <Field>
-              <FieldLabel htmlFor="checkout-7j9-card-name-43j">
-                [Player Name]
-              </FieldLabel>
-              <Input
-                id="checkout-7j9-card-name-43j"
-                placeholder="Evil Rabbit"
-                required
-              />
-            </Field>
-            <Field>
-              <FieldLabel htmlFor="checkout-7j9-card-number-uw1">
-                [Age]
-              </FieldLabel>
-              <Input
-                id="checkout-7j9-card-number-uw1"
-                placeholder="18"
-                required
-              />
-              {/* <FieldDescription>Enter your birthday</FieldDescription> */}
-            </Field>
-          </FieldGroup>
-          {/* <FieldSeparator /> */}
         </FieldGroup>
       </form>
     </div>

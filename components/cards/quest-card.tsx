@@ -61,8 +61,8 @@ const QuestCard = ({
             Tier {tier} / Easy
           </span>
         </div>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardTitle className="font-eurostile">{title}</CardTitle>
+        <CardDescription className="text-xs">{description}</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex justify-start gap-16 py-2"></div>

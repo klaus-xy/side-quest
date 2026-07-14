@@ -48,14 +48,14 @@ const SignUpPage = () => {
           <ChevronLeft size={24} className="stroke-3" />
         </div>
       )}
-      <div className="w-full flex flex-col justify-start items-center flex-1">
+      <div className="w-full flex flex-col justify-start items-center flex-1 relative">
         {/* FORM STEPS */}
 
         {currentStep === 0 && <SignUpForm />}
 
         {currentStep === 1 && <AvatarSelectionForm />}
 
-        <div className="w-full flex justify-center items-center mt-24 px-10 ">
+        <div className="w-full max-w-md flex justify-center items-center mt-24 px-10 ">
           <Button
             variant="outline"
             className="w-full font-eurostile uppercase tracking-[0.25em] text-lg p-4 py-6"

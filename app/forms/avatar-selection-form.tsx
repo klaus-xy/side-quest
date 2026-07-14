@@ -6,7 +6,7 @@ import { FieldDescription, FieldGroup } from "@/components/ui/field";
 const AvatarSelectionForm = () => {
   return (
     <div className="my-6 p-6">
-      <h1>
+      <h1 className="text-3xl">
         Avatar <br />
         Selection
       </h1>
