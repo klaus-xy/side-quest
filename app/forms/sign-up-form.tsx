@@ -39,7 +39,7 @@ const SignUpForm = ({ className }: SignUpFormProps) => {
       <span className="text-[0.7rem] text-primary uppercase font-semibold tracking-[0.3em]">
         [ Welcome ]
       </span>
-      <h1 className="min-h-10 mb-4 text-center text-3xl">
+      <h1 className="min-h-10 mt-2 mb-4 text-center text-3xl">
         {currentText}
         <TypingCursor cursorChar="⋮" />
       </h1>
@@ -73,7 +73,7 @@ const SignUpForm = ({ className }: SignUpFormProps) => {
             </Field>
             <Field>
               <FieldLabel htmlFor="age">[Age]</FieldLabel>
-              <Input id="age" placeholder="18" required type="number" />
+              <Input id="age" placeholder="16" required type="number" />
               {/* <FieldDescription>Enter your birthday</FieldDescription> */}
             </Field>
           </FieldGroup>
