@@ -1,5 +1,16 @@
 import LogItem from "@/components/items/log-item";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 
 const QuestLogs = () => {
@@ -26,9 +37,42 @@ const QuestLogs = () => {
         <span className="text-muted-foreground text-center text-xs">
           Progress is saved locally and persists across sessions.
         </span>
-        <Button variant="destructive" className="mt-4 uppercase text-xs">
-          // wipe all data
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="destructive" className="mt-4 uppercase text-xs">
+              // wipe all data
+            </Button>
+          </DialogTrigger>
+          <DialogContent showCloseButton={false}>
+            <DialogHeader>
+              <DialogTitle className="text-destructive font-eurostile ">
+                Delete Protocol :: Initiated
+              </DialogTitle>
+              <DialogDescription className="text-xs">
+                Wiping your data is irreversable and permanent. This will reset
+                your progress. Side Quest .Inc will not be able to help you
+                recover your progress. Are you sure you want to continue?
+              </DialogDescription>
+            </DialogHeader>
+
+            <div>
+              <span className="text-destructive ">
+                Enter [Player Name] to confirm delete
+              </span>
+              <Input id="age" placeholder="Player Name" required type="text" />
+            </div>
+            <DialogFooter className="sm:justify-start">
+              <DialogClose asChild>
+                <Button type="button" variant="outline">
+                  Cancel
+                </Button>
+              </DialogClose>
+              <Button variant="destructive" type="submit">
+                Confirm Delete
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
