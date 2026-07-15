@@ -9,17 +9,17 @@ import {
   FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import useTypewriter, { TypingCursor } from "../hooks/use-typewriter";
+import useTypewriter, { TypingCursor } from "../../../hooks/use-typewriter";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { Dice1, Dices, User } from "lucide-react";
+import { Dices } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import useRandomNameGenerator from "../hooks/useRandomNameGenerator";
+import useRandomNameGenerator from "../../../hooks/useRandomNameGenerator";
 import { Controller, UseFormReturn } from "react-hook-form";
-import { SignUpFormData } from "../pages/sign-up-page";
+import { SignUpFormData } from "../sign-up-form";
 
 interface SignUpFormProps {
   className?: string;
@@ -68,7 +68,7 @@ const UserInfoForm = ({ className, form }: SignUpFormProps) => {
                     <InputGroupAddon align="inline-end">
                       <Button
                         variant="link"
-                        size="icon"
+                        size="icon-lg"
                         className="p-0"
                         type="button"
                         onClick={() => field.onChange(generateRandomName())}
@@ -95,10 +95,6 @@ const UserInfoForm = ({ className, form }: SignUpFormProps) => {
                     placeholder="16"
                     type="number"
                     aria-invalid={!!fieldState.invalid}
-                    name={field.name}
-                    ref={field.ref}
-                    onBlur={field.onBlur}
-                    value={field.value ?? ""}
                     onChange={(e) => field.onChange(e.target.valueAsNumber)}
                   />
                   {/* <FieldDescription>Enter your birthday</FieldDescription> */}

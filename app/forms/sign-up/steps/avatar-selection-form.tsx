@@ -1,11 +1,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import Avatars from "../mock-data/avatars.json";
+import Avatars from "../../../mock-data/avatars.json";
 import { Button } from "@/components/ui/button";
 import { Field, FieldError } from "@/components/ui/field";
 import { cn } from "@/lib/utils";
 import { Controller, UseFormReturn } from "react-hook-form";
-import { SignUpFormData } from "../pages/sign-up-page";
+import { SignUpFormData } from "../sign-up-form";
 
 interface AvatarSelectionFormProps {
   form: UseFormReturn<SignUpFormData>;
@@ -31,14 +31,14 @@ const AvatarSelectionForm = ({ form }: AvatarSelectionFormProps) => {
                 <button
                   key={avatar.id}
                   type="button"
-                  onClick={() => field.onChange(avatar.id)}
+                  onClick={() => field.onChange(avatar.url)}
                   aria-label={`Select ${avatar.name}`}
-                  aria-pressed={field.value === avatar.id}
+                  aria-pressed={field.value === avatar.url}
                 >
                   <Avatar
                     className={cn(
                       "w-10 h-10 outline-2 outline-offset-2 outline-transparent",
-                      field.value === avatar.id &&
+                      field.value === avatar.url &&
                         "outline-primary animate-pulse",
                     )}
                   >
