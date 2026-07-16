@@ -1,4 +1,11 @@
+import QuestCard from "@/components/cards/quest-card";
 import LogItem from "@/components/items/log-item";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,14 +19,33 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { QUESTS } from "@/lib/quests";
 
 const QuestLogs = () => {
   return (
     <section>
-      <div className="flex justify-start items-center gap-2 my-4">
-        <h4 className="text-primary text-xs">[+] Quest Logs</h4>
-        <Separator className="flex-1" />
-      </div>
+      {/* QUESTS LOGS */}
+      <Accordion
+        className="max-w-lg space-y-4"
+        type="multiple"
+        defaultValue={["quest-logs"]}
+      >
+        <AccordionItem value="quest-logs">
+          <div className="flex justify-start items-center gap-2 my-4">
+            {/* ACCORDION TRIGGER */}
+            <AccordionTrigger showIcon={false}>
+              <h4 className="text-primary text-xs">[+] Quests Logs</h4>
+            </AccordionTrigger>
+            <Separator className="flex-1" />
+          </div>
+          {/* ACTIVE QUEST LIST */}
+          <AccordionContent className="space-y-2">
+            <LogItem />
+            <LogItem />
+            <LogItem />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
 
       {/* <div>
         <p className="text-muted-foreground text-xs italic">
@@ -27,12 +53,9 @@ const QuestLogs = () => {
           appear here.
         </p>
       </div> */}
-      <div className="space-y-2">
-        <LogItem />
-        <LogItem />
-        <LogItem />
-      </div>
+
       <Separator className="mt-24" />
+
       <div className="flex flex-col items-center justify-center gap-2 mt-8">
         <span className="text-muted-foreground text-center text-xs">
           Progress is saved locally and persists across sessions.

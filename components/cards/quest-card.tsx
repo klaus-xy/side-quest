@@ -64,9 +64,9 @@ const QuestCard = ({
         <CardTitle className="font-eurostile">{title}</CardTitle>
         <CardDescription className="text-xs">{description}</CardDescription>
       </CardHeader>
-      <CardContent>
+      {/* <CardContent>
         <div className="flex justify-start gap-16 py-2"></div>
-      </CardContent>
+      </CardContent> */}
       <CardFooter>
         <span className="w-full flex justify-between text-primary font-semibold">
           +{xp} XP
@@ -79,7 +79,12 @@ const QuestCard = ({
           >
             Abandon
           </Button>
-          <Dialog>
+          <Button
+            onClick={newQuest ? handleInitiateQuest : handleCompleteQuest}
+          >
+            {newQuest ? "Initiate" : "Complete"}
+          </Button>
+          {/* <Dialog>
             <DialogTrigger asChild>
               <Button
                 onClick={newQuest ? handleInitiateQuest : handleCompleteQuest}
@@ -108,7 +113,7 @@ const QuestCard = ({
                 </p>
               </div>
             </DialogContent>
-          </Dialog>
+          </Dialog> */}
         </CardAction>
       </CardFooter>
     </Card>
