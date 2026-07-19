@@ -12,7 +12,8 @@ export default function Home() {
 
   // TODO:: MAKE THIS A PROTECTED ROUTE WRAPPER TO AVOID MAKING THE WHOLE COMPONENT A CLIENT SIDE COMPONENT
   useEffect(() => {
-    const isInitialized = sessionStorage.getItem("PLAYER_INITIALIZED");
+    // const isInitialized = sessionStorage.getItem("PLAYER_INITIALIZED");
+    const isInitialized = localStorage.getItem("PLAYER");
     if (!isInitialized) {
       router.push("/initialize");
     }
