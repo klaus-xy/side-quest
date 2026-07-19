@@ -1,3 +1,5 @@
+"use client";
+
 import QuestCard from "@/components/cards/quest-card";
 import {
   Accordion,
@@ -7,9 +9,42 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { QUEST_CATEGORIES, QUESTS } from "@/lib/quests";
+import { Quest, QUEST_CATEGORIES, QUESTS } from "@/lib/quests";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const Quests = () => {
+  const [quests, setQuests] = useState<Quest[]>([]);
+
+  const handleInitiateQuest = (id: string) => {
+    setQuests((prevQuests) => {
+      const updatedQuests = prevQuests.map((quest) =>
+        quest.id === id ? { ...quest, status: "Initiated" as const } : quest,
+      );
+      localStorage.setItem("QUESTS", JSON.stringify(updatedQuests));
+      return updatedQuests;
+    });
+
+    const quest = quests.find((quest) => quest.id === id);
+    toast(`Quest :: ${quest?.title} has started.`, {
+      description: " Quest description. You've got one hour. Let's do this!",
+    });
+  };
+
+  // const handleCompleteQuest = () => {
+  //   setQuestState("Completed");
+  //   toast(`Quest :: ${title} has been completed.`);
+  // };
+
+  // const handleAbandonQuest = () => {
+  //   toast(`Quest :: ${title} has been abandoned.`);
+  // };
+
+  useEffect(() => {
+    // Fetch All Quests
+    setQuests(JSON.parse(localStorage.getItem("QUESTS") || "[]"));
+  }, []);
+
   return (
     <section>
       {/* QUEST FILTERS */}
@@ -41,20 +76,22 @@ const Quests = () => {
           </div>
           {/* ACTIVE QUEST LIST */}
           <AccordionContent className="space-y-4">
-            {" "}
-            {QUESTS.filter((quest) => quest.status === "Initiated").map(
-              (quest) => (
+            {quests
+              .filter((quest) => quest.status === "Initiated")
+              .map((quest) => (
                 <QuestCard
-                  key={quest.title}
+                  key={quest.id}
                   title={quest.title}
                   description={quest.description}
                   category={quest.category}
                   xp={quest.xp}
                   tier={quest.tier}
-                  newQuest={false}
+                  status={quest.status}
+                  // onQuestInitiate={() => handleInitiateQuest({ title })}
+                  // onQuestComplete={handleCompleteQuest}
+                  // onQuestAbandon={handleAbandonQuest}
                 />
-              ),
-            )}
+              ))}
           </AccordionContent>
         </AccordionItem>
 
@@ -68,18 +105,20 @@ const Quests = () => {
           </div>
           {/* NEW QUESTS LIST */}
           <AccordionContent className="space-y-4">
-            {" "}
-            {QUESTS.filter((quest) => quest.status === "New").map((quest) => (
-              <QuestCard
-                key={quest.title}
-                title={quest.title}
-                description={quest.description}
-                category={quest.category}
-                xp={quest.xp}
-                tier={quest.tier}
-                newQuest={false}
-              />
-            ))}
+            {quests
+              .filter((quest) => quest.status === "New")
+              .map((quest) => (
+                <QuestCard
+                  key={quest.id}
+                  title={quest.title}
+                  description={quest.description}
+                  category={quest.category}
+                  xp={quest.xp}
+                  tier={quest.tier}
+                  status={quest.status}
+                  onQuestInitiate={() => handleInitiateQuest(quest.id)}
+                />
+              ))}
           </AccordionContent>
         </AccordionItem>
       </Accordion>
@@ -88,4 +127,3 @@ const Quests = () => {
 };
 
 export default Quests;
-``;

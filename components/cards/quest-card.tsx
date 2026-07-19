@@ -19,15 +19,20 @@ import {
   Dialog,
 } from "../ui/dialog";
 import { toast } from "sonner";
+import { QuestStatus } from "@/lib/quests";
+import { useState } from "react";
+import { set } from "zod";
 
 interface QuestCardProps {
   title: string;
   description: string;
   category: string;
   xp: number;
-
   tier: number;
-  newQuest?: boolean;
+  status?: QuestStatus;
+  onQuestInitiate?: () => void;
+  onQuestComplete?: () => void;
+  onQuestAbandon?: () => void;
 }
 
 const QuestCard = ({
@@ -36,15 +41,22 @@ const QuestCard = ({
   category = "Category",
   xp = 25,
   tier = 1,
-  newQuest = true,
+  status = "New",
+  onQuestInitiate,
 }: QuestCardProps) => {
+  const [questStatus, setQuestStatus] = useState<QuestStatus>(status);
+
   const handleInitiateQuest = () => {
+    // console.log(title, "QUEST STATUS::", questStatus);
+
+    setQuestStatus("Initiated");
     toast(`Quest :: ${title} has started.`, {
       description: " Quest description. You've got one hour. Let's do this!",
     });
   };
 
   const handleCompleteQuest = () => {
+    setQuestStatus("Completed");
     toast(`Quest :: ${title} has been completed.`);
   };
 
@@ -74,15 +86,17 @@ const QuestCard = ({
         <CardAction className="flex justify-end gap-2">
           <Button
             variant={"outline"}
-            className={`${newQuest ? "hidden" : ""}`}
+            className={`${questStatus === "Initiated" ? "visible" : "hidden"}`}
             onClick={handleAbandonQuest}
           >
             Abandon
           </Button>
           <Button
-            onClick={newQuest ? handleInitiateQuest : handleCompleteQuest}
+            onClick={
+              questStatus === "New" ? onQuestInitiate : handleCompleteQuest
+            }
           >
-            {newQuest ? "Initiate" : "Complete"}
+            {questStatus === "New" ? "Initiate" : "Complete"}
           </Button>
           {/* <Dialog>
             <DialogTrigger asChild>

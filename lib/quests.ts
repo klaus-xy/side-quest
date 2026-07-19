@@ -13,9 +13,10 @@ export const QUEST_CATEGORIES: QuestCategory[] = [
   { value: "random", label: "🎲 Random " },
 ];
 
-export type QuestStatus = "New" | "Initiated" | "Abandoned";
+export type QuestStatus = "New" | "Initiated" | "Completed" | "Abandoned";
 
 export interface Quest {
+  id: string;
   title: string;
   description: string;
   category: string;
@@ -26,6 +27,7 @@ export interface Quest {
 
 export const QUESTS: Quest[] = [
   {
+    id: "quest-001",
     title: "Sound Byte 🎶",
     description:
       "Record a voice memo, about 30 seconds, of a melody or rhythm stuck in your head.",
@@ -35,6 +37,7 @@ export const QUESTS: Quest[] = [
     status: "Initiated",
   },
   {
+    id: "quest-002",
     title: "System Reboot 🤖",
     description: "Drink a full glass of water right now.",
     category: "Physical",
@@ -43,6 +46,7 @@ export const QUESTS: Quest[] = [
     status: "Initiated",
   },
   {
+    id: "quest-003",
     title: "Social Anxiety Who? 🤷🏽‍♀️",
     description:
       "Spontaneously start to dance to background music in a coffee shop or a park.",
@@ -52,6 +56,7 @@ export const QUESTS: Quest[] = [
     status: "Initiated",
   },
   {
+    id: "quest-004",
     title: "Commitment 🧑‍🤝‍🧑",
     description: "Push a new git commit -m Sponsored by SideQuest.inc.",
     category: "Tech",
@@ -60,6 +65,7 @@ export const QUESTS: Quest[] = [
     status: "New",
   },
   {
+    id: "quest-005",
     title: "Touch Grass 🌱",
     description: "Go on. Touch grass.  Touch grass.  Touch grass.",
     category: "Social",
@@ -68,6 +74,7 @@ export const QUESTS: Quest[] = [
     status: "New",
   },
   {
+    id: "quest-006",
     title: "Social Anxiety Who? v2 🦖",
     description:
       "Go get groceries in a full superhero suit or dinosaur onesie just because you can... and it's comfortable.",
@@ -77,6 +84,7 @@ export const QUESTS: Quest[] = [
     status: "New",
   },
   {
+    id: "quest-007",
     title: "Social Anxiety Who? v3 👀",
     description:
       "Look at a stranger's delicious food/snack and ask for a taste with absolute, zero-guilt confidence.",

@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import UserInfoForm from "./steps/user-info-form";
 import { PlayerData } from "@/components/cards/player-profile-card";
+import { QUESTS } from "@/lib/quests";
 
 // ::::: FORM SCHEMAS ::::: //
 const UserInfoFormSchema = z.object({
@@ -66,6 +67,13 @@ const SignUpForm = () => {
     let playerData: PlayerData = { identity: data, stats: { level: 1, xp: 0 } };
     localStorage.setItem("PLAYER", JSON.stringify(playerData));
 
+    // Initialize Mock Data
+    localStorage.setItem("QUESTS", JSON.stringify(QUESTS));
+    // localStorage.setItem("COMPLETED_QUESTS", JSON.stringify([]));
+    // localStorage.setItem("FORFEITED_QUESTS", JSON.stringify([]));
+
+    // Save Player Session
+    sessionStorage.setItem("PLAYER_INITIALIZED", "true");
     // Redirect to the home page
     router.push("/");
     console.log(data, "PLAYER INITIALIZED SUCCESSFULLY");

@@ -115,16 +115,16 @@ const PlayerProfileCard = () => {
           <div>
             <div>
               {/* PLAYERSTATS */}
-              <div className="flex text-[0.55rem] text-center uppercase gap-1">
-                <span className="text-amber-500 font-semibold">
-                  [⚡] Streak <span>05</span> <br />{" "}
-                </span>
-                <span className="text-muted-foreground font-semibold">
-                  [🧑🏽‍🎤] Quests Completed 25
-                </span>
-                <span className="text-muted-foreground font-semibold">
-                  [🧑🏽] Quests Forfeited 00
-                </span>
+              <div className="flex justify-end items-center text-[0.55rem] text-center uppercase gap-4">
+                <div className="text-muted-foreground font-semibold flex flex-col">
+                  Streak <span className="text-amber-500 ">[⚡] 05</span>
+                </div>
+                <div className="text-muted-foreground font-semibold flex flex-col">
+                  Quests Completed <span className="text-primary">[🧑🏽‍🎤] 25</span>
+                </div>
+                <div className="text-muted-foreground font-semibold  flex flex-col">
+                  Quests Forfeited <span> [🧑🏽] 00 </span>
+                </div>
               </div>
             </div>
           </div>
