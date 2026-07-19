@@ -23,8 +23,8 @@ const Header = ({ showSiteStatus = true }: HeaderProps) => {
         </span>
       )}
       <h1>Side Quest .Inc</h1>
-      <h2 className="text-primary text-[0.7rem] font-semibold font-mono">
-        Tired of normal life? Do a Side-Quest.
+      <h2 className="text-primary text-[0.7rem] font-bold font-mono tracking-wide">
+        [Tired of normal life? Do a Side-Quest]
       </h2>
     </div>
   );

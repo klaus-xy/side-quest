@@ -76,9 +76,8 @@ const Quests = () => {
           </div>
           {/* ACTIVE QUEST LIST */}
           <AccordionContent className="space-y-4">
-            {quests
-              .filter((quest) => quest.status === "Initiated")
-              .map((quest) => (
+            {QUESTS.filter((quest) => quest.status === "Initiated").map(
+              (quest) => (
                 <QuestCard
                   key={quest.id}
                   title={quest.title}
@@ -91,7 +90,8 @@ const Quests = () => {
                   // onQuestComplete={handleCompleteQuest}
                   // onQuestAbandon={handleAbandonQuest}
                 />
-              ))}
+              ),
+            )}
           </AccordionContent>
         </AccordionItem>
 
@@ -105,20 +105,18 @@ const Quests = () => {
           </div>
           {/* NEW QUESTS LIST */}
           <AccordionContent className="space-y-4">
-            {quests
-              .filter((quest) => quest.status === "New")
-              .map((quest) => (
-                <QuestCard
-                  key={quest.id}
-                  title={quest.title}
-                  description={quest.description}
-                  category={quest.category}
-                  xp={quest.xp}
-                  tier={quest.tier}
-                  status={quest.status}
-                  onQuestInitiate={() => handleInitiateQuest(quest.id)}
-                />
-              ))}
+            {QUESTS.filter((quest) => quest.status === "New").map((quest) => (
+              <QuestCard
+                key={quest.id}
+                title={quest.title}
+                description={quest.description}
+                category={quest.category}
+                xp={quest.xp}
+                tier={quest.tier}
+                status={quest.status}
+                onQuestInitiate={() => handleInitiateQuest(quest.id)}
+              />
+            ))}
           </AccordionContent>
         </AccordionItem>
       </Accordion>

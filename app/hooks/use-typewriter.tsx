@@ -71,7 +71,7 @@ const useTypewriter = ({
         setIsLineComplete(true);
       }
     }
-    console.log("Line ", currentLineIndex, " is complete.");
+    // console.log("Line ", currentLineIndex, " is complete.");
   }, [currentText, currentLineIndex, hasStartedTyping]);
 
   // Updates current line.
@@ -84,13 +84,13 @@ const useTypewriter = ({
           setIsLineComplete(false); // reset line completion status
         } else {
           setIsTypingComplete(true);
-          console.log("Typing is complete.");
+          // console.log("Typing is complete.");
         }
       }, delayBetweenLines);
 
       return () => clearTimeout(delay);
     }
-    console.log("New Line ", currentLineIndex, " is being typed.");
+    // console.log("New Line ", currentLineIndex, " is being typed.");
   }, [isLineComplete, currentLineIndex]);
 
   // RETURN PAYLOAD ////////
