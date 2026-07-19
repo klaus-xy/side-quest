@@ -2,18 +2,21 @@
 
 import { Button } from "@/components/ui/button";
 import AvatarSelectionForm from "./steps/avatar-selection-form";
-import Header from "@/components/layout/header";
 import { useState } from "react";
-import { ArrowBigLeft, ChevronLeft, User } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import UserInfoForm from "./steps/user-info-form";
-import { PlayerData } from "@/components/cards/player-profile-card";
+import {
+  PlayerData,
+  PlayerIdentity,
+} from "@/components/cards/player-profile-card";
 import { QUESTS } from "@/lib/quests";
 
 // ::::: FORM SCHEMAS ::::: //
+// Stage 1 Schema - User Info
 const UserInfoFormSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters long",
@@ -23,11 +26,14 @@ const UserInfoFormSchema = z.object({
   }),
 });
 
+// Stage 2 Schema - Avatar Selection
 const AvatarSelectionFormSchema = z.object({
   avatar: z.string().min(1, {
     message: "Please select an avatar",
   }),
 });
+
+// Full Form Schema
 const SignUpFormSchema = UserInfoFormSchema.merge(AvatarSelectionFormSchema);
 
 // ::::: FORM TYPES ::::: //
@@ -36,6 +42,8 @@ export type AvatarSelectionFormData = z.infer<typeof AvatarSelectionFormSchema>;
 export type SignUpFormData = z.infer<typeof SignUpFormSchema>;
 
 const SignUpForm = () => {
+  const router = useRouter();
+
   // ::::: FORM INITIALIZATION ::::: //
   const form = useForm<SignUpFormData>({
     resolver: zodResolver(SignUpFormSchema),
@@ -46,8 +54,6 @@ const SignUpForm = () => {
       avatar: "",
     },
   });
-
-  const router = useRouter();
 
   // ::::: FORM STATES ::::: //
   const [currentStep, setCurrentStep] = useState(0);
@@ -63,8 +69,9 @@ const SignUpForm = () => {
   const onSubmit = (data: SignUpFormData) => {
     // Handle the initialization logic here
 
-    // Save the player data to localStorage
+    // Save the player data to localStorage.
     let playerData: PlayerData = { identity: data, stats: { level: 1, xp: 0 } };
+
     localStorage.setItem("PLAYER", JSON.stringify(playerData));
 
     // Initialize Mock Data
@@ -74,6 +81,8 @@ const SignUpForm = () => {
 
     // Save Player Session
     sessionStorage.setItem("PLAYER_INITIALIZED", "true");
+
+    // Complete Sign Up Flow
     // Redirect to the home page
     router.push("/");
     console.log(data, "PLAYER INITIALIZED SUCCESSFULLY");

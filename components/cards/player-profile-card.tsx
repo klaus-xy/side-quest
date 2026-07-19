@@ -25,7 +25,7 @@ export interface PlayerData {
   stats: PlayerStats;
 }
 const EMPTY_PLAYER_DATA: PlayerData = {
-  identity: { name: "NULL ::/", age: 0, avatar: "" },
+  identity: { name: "NULL ::/", age: 0, avatar: "/images/cool-klaus.jpg" },
   stats: { level: 0, xp: 0 },
 };
 
@@ -34,9 +34,9 @@ const PlayerProfileCard = () => {
   const [playerData, setPlayerData] = useState<PlayerData>(EMPTY_PLAYER_DATA);
 
   const fetchPlayerData = async () => {
-    if (typeof window === "undefined") return EMPTY_PLAYER_DATA;
-    const playerData = JSON.parse(localStorage.getItem("PLAYER") || "{}");
-    setPlayerData(playerData);
+    // if (typeof window === "undefined") return EMPTY_PLAYER_DATA;
+    const stored = localStorage.getItem("PLAYER");
+    setPlayerData(stored ? JSON.parse(stored) : EMPTY_PLAYER_DATA);
   };
 
   useEffect(() => {
