@@ -43,27 +43,9 @@ const QuestCard = ({
   tier = 1,
   status = "New",
   onQuestInitiate,
+  onQuestAbandon,
+  onQuestComplete,
 }: QuestCardProps) => {
-  const [questStatus, setQuestStatus] = useState<QuestStatus>(status);
-
-  const handleInitiateQuest = () => {
-    // console.log(title, "QUEST STATUS::", questStatus);
-
-    setQuestStatus("Initiated");
-    toast(`Quest :: ${title} has started.`, {
-      description: " Quest description. You've got one hour. Let's do this!",
-    });
-  };
-
-  const handleCompleteQuest = () => {
-    setQuestStatus("Completed");
-    toast(`Quest :: ${title} has been completed.`);
-  };
-
-  const handleAbandonQuest = () => {
-    toast(`Quest :: ${title} has been abandoned.`);
-  };
-
   return (
     <Card className="rounded-none border">
       <CardHeader>
@@ -86,17 +68,26 @@ const QuestCard = ({
         <CardAction className="flex justify-end gap-2">
           <Button
             variant={"outline"}
-            className={`${questStatus === "Initiated" ? "visible" : "hidden"}`}
-            onClick={handleAbandonQuest}
+            className={`${status === "Initiated" ? "visible" : "hidden"}`}
+            onClick={onQuestAbandon}
           >
             Abandon
           </Button>
           <Button
+            variant={status === "Abandoned" ? "destructive" : "default"}
             onClick={
-              questStatus === "New" ? onQuestInitiate : handleCompleteQuest
+              status === "New"
+                ? onQuestInitiate
+                : status === "Abandoned"
+                  ? onQuestInitiate
+                  : onQuestComplete
             }
           >
-            {questStatus === "New" ? "Initiate" : "Complete"}
+            {status === "New"
+              ? "Initiate"
+              : status === "Abandoned"
+                ? "Re-Initiate"
+                : "Complete"}
           </Button>
           {/* <Dialog>
             <DialogTrigger asChild>
