@@ -1,5 +1,4 @@
-import QuestCard from "@/components/cards/quest-card";
-import LogItem from "@/components/items/log-item";
+import QuestLogItem from "@/components/items/quest-log-item";
 import {
   Accordion,
   AccordionContent,
@@ -40,9 +39,10 @@ const QuestLogs = () => {
           </div>
           {/* ACTIVE QUEST LIST */}
           <AccordionContent className="space-y-2">
-            <LogItem />
-            <LogItem />
-            <LogItem />
+            <QuestLogItem title={QUESTS[0].title} status="Initiated" />
+            <QuestLogItem title={QUESTS[0].title} status="Abandoned" />
+            <QuestLogItem title={QUESTS[0].title} status="ReInitiated" />
+            <QuestLogItem title={QUESTS[0].title} status="Completed" />
           </AccordionContent>
         </AccordionItem>
       </Accordion>

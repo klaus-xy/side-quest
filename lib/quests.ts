@@ -1,3 +1,5 @@
+import { cva } from "class-variance-authority";
+
 export interface QuestCategory {
   value: string;
   label: string;
@@ -13,7 +15,42 @@ export const QUEST_CATEGORIES: QuestCategory[] = [
   { value: "random", label: "🎲 Random " },
 ];
 
-export type QuestStatus = "New" | "Initiated" | "Completed" | "Abandoned";
+export type QuestStatus =
+  | "New"
+  | "Initiated"
+  | "Completed"
+  | "Abandoned"
+  | "ReInitiated";
+
+export const questStatusVariants = cva("", {
+  variants: {
+    status: {
+      New: "text-muted-foreground",
+      Initiated: "text-amber-500",
+      ReInitiated: "text-amber-500",
+      Completed: "text-primary",
+      Abandoned: "text-destructive",
+    } satisfies Record<QuestStatus, string>,
+  },
+  defaultVariants: {
+    status: "New",
+  },
+});
+
+export const questStatusAccentVariants = cva("", {
+  variants: {
+    status: {
+      New: "bg-muted-foreground",
+      Initiated: "bg-amber-500",
+      ReInitiated: "bg-amber-500",
+      Completed: "bg-primary",
+      Abandoned: "bg-destructive",
+    } satisfies Record<QuestStatus, string>,
+  },
+  defaultVariants: {
+    status: "New",
+  },
+});
 
 export interface Quest {
   id: string;

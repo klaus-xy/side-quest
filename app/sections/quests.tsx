@@ -12,31 +12,9 @@ import { Separator } from "@/components/ui/separator";
 import { Quest, QUEST_CATEGORIES } from "@/lib/quests";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { set } from "zod";
 
 const Quests = () => {
   const [quests, setQuests] = useState<Quest[]>([]);
-  console.log(quests);
-
-  function updateQuestStatus(id: Quest["id"]) {
-    // Rebuild and Mutate Quests State
-    setQuests((prevQuests) => {
-      const updatedQuests = prevQuests.map((quest) =>
-        quest.id === id
-          ? { ...quest, status: "Initiated" as Quest["status"] }
-          : quest,
-      );
-      // Push changes to Update LocalStorage/DB
-      localStorage.setItem("QUESTS", JSON.stringify(updatedQuests));
-      return updatedQuests;
-    });
-
-    // Notify [Player] about the Quest status
-    const quest = quests.find((quest) => quest.id === id);
-    toast(`Quest :: ${quest?.title} has been initiated.`, {
-      description: " Quest description. You've got one hour. Let's do this!",
-    });
-  }
 
   const handleInitiateQuest = (id: Quest["id"]) => {
     // Rebuild and Mutate Quests State
@@ -63,7 +41,7 @@ const Quests = () => {
     setQuests((prevQuests) => {
       const updatedQuests = prevQuests.map((quest) =>
         quest.id === id
-          ? { ...quest, status: "Abandoned" as Quest["status"] }
+          ? { ...quest, status: "Completed" as Quest["status"] }
           : quest,
       );
       // Push changes to Update LocalStorage/DB
@@ -133,7 +111,8 @@ const Quests = () => {
             <Separator className="flex-1" />
           </div>
           {/* ACTIVE QUEST LIST */}
-          <AccordionContent className="space-y-4">
+          <AccordionContent className="space-y-4 ">
+            {quests.length === 0 && <p>No active quests found.</p>}
             {quests
               .filter((quest) => quest.status === "Initiated")
               .map((quest) => (
@@ -163,6 +142,7 @@ const Quests = () => {
           </div>
           {/* NEW QUESTS LIST */}
           <AccordionContent className="space-y-4">
+            {quests.length === 0 && <p>No new quests found.</p>}
             {quests
               .filter((quest) => quest.status === "New")
               .map((quest) => (
@@ -191,6 +171,7 @@ const Quests = () => {
           </div>
           {/* NEW QUESTS LIST */}
           <AccordionContent className="space-y-4">
+            {quests.length === 0 && <p>No abandoned quests found.</p>}
             {quests
               .filter((quest) => quest.status === "Abandoned")
               .map((quest) => (
