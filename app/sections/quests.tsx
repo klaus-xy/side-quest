@@ -112,7 +112,8 @@ const Quests = () => {
           </div>
           {/* ACTIVE QUEST LIST */}
           <AccordionContent className="space-y-4 ">
-            {quests.length === 0 && <p>No active quests found.</p>}
+            {quests.filter((quest) => quest.status === "Initiated").length ===
+              0 && <p>No active quests found.</p>}
             {quests
               .filter((quest) => quest.status === "Initiated")
               .map((quest) => (
@@ -142,7 +143,9 @@ const Quests = () => {
           </div>
           {/* NEW QUESTS LIST */}
           <AccordionContent className="space-y-4">
-            {quests.length === 0 && <p>No new quests found.</p>}
+            {quests.filter((quest) => quest.status === "New").length === 0 && (
+              <p>No new quests found.</p>
+            )}
             {quests
               .filter((quest) => quest.status === "New")
               .map((quest) => (
@@ -171,7 +174,8 @@ const Quests = () => {
           </div>
           {/* NEW QUESTS LIST */}
           <AccordionContent className="space-y-4">
-            {quests.length === 0 && <p>No abandoned quests found.</p>}
+            {quests.filter((quest) => quest.status === "Abandoned").length ===
+              0 && <p>No abandoned quests found.</p>}
             {quests
               .filter((quest) => quest.status === "Abandoned")
               .map((quest) => (

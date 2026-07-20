@@ -22,6 +22,7 @@ import { toast } from "sonner";
 import { QuestStatus } from "@/lib/quests";
 import { useState } from "react";
 import { set } from "zod";
+import { Badge } from "../ui/badge";
 
 interface QuestCardProps {
   title: string;
@@ -51,9 +52,15 @@ const QuestCard = ({
       <CardHeader>
         <div className="flex justify-between">
           <span className="text-xs">🍵 {category}</span>
-          <span className="text-xs text-muted-foreground">
-            Tier {tier} / Easy
-          </span>
+          <div className="flex justify-center items-center gap-2 text-[0.625rem] uppercase">
+            <span className=" text-muted-foreground">Tier {tier}</span>
+            <Badge
+              variant={"outline"}
+              className="border-purple-500 text-[0.625rem]"
+            >
+              Popular
+            </Badge>
+          </div>
         </div>
         <CardTitle className="font-eurostile">{title}</CardTitle>
         <CardDescription className="text-xs">{description}</CardDescription>
